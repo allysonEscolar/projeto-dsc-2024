@@ -9,6 +9,7 @@ Route::get('/', function () {
 
 Route::get('/curso-listagem', [ CursoController::class, 'index' ])->name('curso.listagem');
 Route::get('/curso-cadastro', [ CursoController::class, 'create' ])->name('curso.cadastro');
+Route::post('/curso-salvar', [ CursoController::class, 'store' ])->name('curso.salvar');
 
 /*Route::get('/apresentacao', function () {
     return view('apresentacao');
