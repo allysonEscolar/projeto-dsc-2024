@@ -12,17 +12,19 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
+            <th>Ações</th>
         </tr>
 
         @forelse($objetos as $objeto)
-        <tr>
-            <td> {{ $objeto['id'] }} </td>
-            <td> {{ $objeto['nome'] }} </td>
-        </tr>
+            <tr>
+                <td> {{ $objeto['id'] }} </td>
+                <td> {{ $objeto['nome'] }} </td>
+                <td><a href="{{ route('curso.alterar', ['id' => $objeto['id']]) }}">Alterar</a></td>
+            </tr>
         @empty
-        <tr>
-            <td> Sem Dados no Banco de Dados </td>
-        </tr>
+            <tr>
+                <td> Sem Dados no Banco de Dados </td>
+            </tr>
         @endforelse
     </table>
 @stop
@@ -33,5 +35,7 @@
 @stop
 
 @section('js')
-    <script> console.log("Hi, I'm using the Laravel-AdminLTE package!"); </script>
+    <script>
+        console.log("Hi, I'm using the Laravel-AdminLTE package!");
+    </script>
 @stop

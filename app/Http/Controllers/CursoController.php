@@ -13,7 +13,7 @@ class CursoController extends Controller
     public function index()
     {
         $dados = Curso::all();
-        
+
         return view('curso-listagem', [
             'objetos' => $dados
         ]);
@@ -35,11 +35,11 @@ class CursoController extends Controller
         $dados_formulario = $request->all();
 
         $retorno = Curso::create($dados_formulario);
-        if($retorno){
+        if ($retorno) {
             return redirect()->route('curso.listagem');
         }
 
-}
+    }
 
     /**
      * Display the specified resource.
@@ -54,7 +54,13 @@ class CursoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dado = Curso::find($id);
+        if ($dado) {
+            return view('curso-alterar',['objeto'=> $dado]);
+        }else{
+            return redirect()->back();
+        }
+
     }
 
     /**
